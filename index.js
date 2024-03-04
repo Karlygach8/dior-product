@@ -9,19 +9,23 @@ async function getCategory() {
         const data = await res.json()
 
         console.log(data.categories);
+        showCategory(data.categories)
 
     }catch(error) {
         console.log(error);
     }
 }
 
+getCategory();
+
 function showCategory(data) {
     content.innerHTML = data.map((item) => {
         return`
         <div class="card">
-            <div class="image"> <img src="${item.strCategoryThumb}" alt=""></div>
+            <div class="image"> <img src="${item.strCategoryThumb}" alt="">
+            </div>
             <div class="info"> 
-                <h2>Title</h2>
+                <h2>${item.strCategory}</h2>
                 <p>desc</p>
                 <div>1200</div>
             </div>
